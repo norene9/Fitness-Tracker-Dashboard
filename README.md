@@ -1,10 +1,11 @@
 # Fitness-Tracker-Dashboard
-Avg Heart Range = [Avg Heart Rate - Target Max] - [Avg Heart Rate - Target Min]
-Avg Heart Rate = AVERAGE(fctFitnessStats[Heart Rate])
-Avg Heart Rate - Axis Fill = 150 - [Avg Heart Rate - Target Max]
-Avg Heart Rate - Target Max = SELECTEDVALUE(dimUser[Heart Rate Target Max])
-Avg Heart Rate - Target Min = SELECTEDVALUE(dimUser[Heart Rate Target Min])
-Avg Heart Rate over Selected Period = 
+# Metrics
+- Avg Heart Range = [Avg Heart Rate - Target Max] - [Avg Heart Rate - Target Min]
+- Avg Heart Rate = AVERAGE(fctFitnessStats[Heart Rate])
+- Avg Heart Rate - Axis Fill = 150 - [Avg Heart Rate - Target Max]
+- Avg Heart Rate - Target Max = SELECTEDVALUE(dimUser[Heart Rate Target Max])
+- Avg Heart Rate - Target Min = SELECTEDVALUE(dimUser[Heart Rate Target Min])
+- Avg Heart Rate over Selected Period = 
 VAR MaxDate = 
 IF(
     ISFILTERED(dimDate),
@@ -18,10 +19,11 @@ VAR Result =
     )
 RETURN
 Result
-Avg Daily Steps = AVERAGE(fctFitnessStats[Steps])
-Avg Daily Steps - Target Max = SELECTEDVALUE(dimUser[Steps Target Max])
-Avg Daily Steps - Target Min = SELECTEDVALUE(dimUser[Steps Target Min])
-Avg Daily Steps over Selected Period = 
+## Steps Rate
+- Avg Daily Steps = AVERAGE(fctFitnessStats[Steps])
+- Avg Daily Steps - Target Max = SELECTEDVALUE(dimUser[Steps Target Max])
+- Avg Daily Steps - Target Min = SELECTEDVALUE(dimUser[Steps Target Min])
+- Avg Daily Steps over Selected Period = 
 VAR MaxDate = 
 IF(
     ISFILTERED(dimDate),
@@ -35,12 +37,13 @@ VAR Result =
     )
 RETURN
 Result
-Avg Daily Steps Range = [Avg Daily Steps - Target Max] - [Avg Daily Steps - Target Min]
-Avg Calories = AVERAGE(fctFitnessStats[Calories])
-Avg Calories Target Range = [Avg Daily Calories - Target Max] - [Avg Daily Calories - Target Min] 
-Avg Daily Calories - Target Max = SELECTEDVALUE(dimUser[Calories Target Max])
-Avg Daily Calories - Target Min = SELECTEDVALUE(dimUser[Calories Target Min])
-Avg Daily Calories over Selected Period = 
+- Avg Daily Steps Range = [Avg Daily Steps - Target Max] - [Avg Daily Steps - Target Min]
+## Calories Rate
+- Avg Calories = AVERAGE(fctFitnessStats[Calories])
+- Avg Calories Target Range = [Avg Daily Calories - Target Max] - [Avg Daily Calories - Target Min] 
+- Avg Daily Calories - Target Max = SELECTEDVALUE(dimUser[Calories Target Max])
+- Avg Daily Calories - Target Min = SELECTEDVALUE(dimUser[Calories Target Min])
+- Avg Daily Calories over Selected Period = 
 VAR MaxDate = 
 IF(
     ISFILTERED(dimDate),
@@ -55,10 +58,11 @@ VAR Result =
     )
 RETURN
 Result
-Total Calories = SUM(fctFitnessStats[Calories])
-Total Exercise Sessions - Target Max = SELECTEDVALUE(dimUser[Exercise Sessions (monthly) Target Max])
-Total Exercise Sessions - Target Min = SELECTEDVALUE(dimUser[Exercise Sessions (monthly) Target Min])
-Total Exercise Sessions over Selected Period = 
+- Total Calories = SUM(fctFitnessStats[Calories])
+## Sessions Rate
+- Total Exercise Sessions - Target Max = SELECTEDVALUE(dimUser[Exercise Sessions (monthly) Target Max])
+- Total Exercise Sessions - Target Min = SELECTEDVALUE(dimUser[Exercise Sessions (monthly) Target Min])
+- Total Exercise Sessions over Selected Period = 
 VAR MaxDate = 
 IF(
     ISFILTERED(dimDate),
@@ -72,7 +76,8 @@ VAR Result =
     )
 RETURN
 Result
-Total Exercise Sessions Range = [Total Exercise Sessions - Target Max] - [Total Exercise Sessions - Target Min]
+## Totale Rate
+- Total Exercise Sessions Range = [Total Exercise Sessions - Target Max] - [Total Exercise Sessions - Target Min]
 Health Score = 
 
 // Calories
@@ -120,4 +125,4 @@ SWITCH(
     Hour >= 18 && Hour < 24, "Good Evening"
 )
 RETURN
-Greeting & " " & SELECTEDVALUE(dimUser[First Name])
+- Greeting & " " & SELECTEDVALUE(dimUser[First Name])
